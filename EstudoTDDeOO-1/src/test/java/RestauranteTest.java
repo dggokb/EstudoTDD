@@ -60,9 +60,8 @@ class RestauranteTest {
 
     @Test
     void devoConseguirContratarUmCheffSemLinhaDeCozinhaDefinida() {
-        Cheff contratandoUmCheff = Restaurante.contratar(nomeDoCheffAContratar, salarioDoCheffAContratar);
+        Boolean consigaContratarUmCheff = restaurante.contratar(nomeDoCheffAContratar, salarioDoCheffAContratar);
 
-        Assertions.assertEquals(contratandoUmCheff.getNome(), nomeDoCheffAContratar);
-        Assertions.assertEquals(contratandoUmCheff.getSalario(), salarioDoCheffAContratar);
+        Assertions.assertTrue(consigaContratarUmCheff);
     }
 }

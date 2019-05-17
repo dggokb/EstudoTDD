@@ -24,8 +24,13 @@ public class Restaurante {
         return new Cheff(nome, salario, linhaDeCozinha);
     }
 
-    public static Cheff contratar(String nome, Double salario) {
-        return new Cheff(nome, salario);
+    public boolean contratar(String nome, Double salario) {
+        return cheff.add(new Cheff(nome, salario));
+    }
+
+    public void adicionarNaLista (Cheff contratatado){
+        cheff.add(contratatado);
+
     }
 
     private Double getReceitaTotalDoCliente(List<Cliente> cliente) {
