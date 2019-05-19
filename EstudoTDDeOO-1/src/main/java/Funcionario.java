@@ -1,8 +1,8 @@
-
 public abstract class Funcionario {
     private String nome;
 
     protected Double salario;
+
     public Funcionario(String nome, Double salario) {
         this.nome = nome;
         this.salario = salario;
@@ -10,9 +10,5 @@ public abstract class Funcionario {
 
     public Double getSalario() {
         return salario;
-    }
-
-    public String getNome() {
-        return nome;
     }
 }

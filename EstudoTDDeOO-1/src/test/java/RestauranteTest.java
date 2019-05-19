@@ -19,15 +19,17 @@ class RestauranteTest {
     @BeforeEach
     public void setUp() {
         cheff = new ArrayList<Cheff>();
+        garcon = new ArrayList<Garcon>();
+        cliente = new ArrayList<Cliente>();
         cheff.add(new Cheff("Joao", 2000.00, "Vegetariano"));
-        garcon = Arrays.asList(new Garcon("Antonio", 500.00));
-        cliente = Arrays.asList(new Cliente("Gertrudis", 150.00),
-                new Cliente("Nobrega", 200.00, "Vegetariano"));
+        garcon.add(new Garcon("Antonio", 500.00));
+        cliente.add(new Cliente("Gertrudis", 150.00));
+        cliente.add(new Cliente("Nobrega", 200.00, "Vegetariano"));
         valorEmCaixa = 10000.00;
-        restaurante = new Restaurante(cheff, garcon, cliente, valorEmCaixa);
         nomeDoCheffAContratar = "Juca";
         salarioDoCheffAContratar = 3000.00;
         linhaDeCozinhaDoCheffAContratar = "Ocidental";
+        restaurante = new Restaurante(cheff, garcon, cliente, valorEmCaixa);
     }
 
     @Test
@@ -42,7 +44,7 @@ class RestauranteTest {
 
     @Test
     public void deveConseguirRealizarOLevantamentoDoFaturamentoDoRestaurante() {
-        Double faturamentoEperado = 7900.00;
+        Double faturamentoEperado = 7700.00;
 
         Double faturamentoObtidoDoRestaurante = restaurante.getFaturamento();
 
@@ -51,17 +53,35 @@ class RestauranteTest {
 
     @Test
     void devoConseguirContratarUmCheffComLinhaDeCozinhaDefinida() {
-        Cheff contratandoUmCheff = Restaurante.contratar(nomeDoCheffAContratar, salarioDoCheffAContratar, linhaDeCozinhaDoCheffAContratar);
+        Boolean consigaContratarUmCheff = restaurante.contratarUmCheff(nomeDoCheffAContratar, salarioDoCheffAContratar, linhaDeCozinhaDoCheffAContratar);
 
-        Assertions.assertEquals(contratandoUmCheff.getNome(), nomeDoCheffAContratar);
-        Assertions.assertEquals(contratandoUmCheff.getSalario(), salarioDoCheffAContratar);
-        Assertions.assertEquals(contratandoUmCheff.getLinhaDeCozinha(), linhaDeCozinhaDoCheffAContratar);
+        Assertions.assertTrue(consigaContratarUmCheff);
     }
 
     @Test
     void devoConseguirContratarUmCheffSemLinhaDeCozinhaDefinida() {
-        Boolean consigaContratarUmCheff = restaurante.contratar(nomeDoCheffAContratar, salarioDoCheffAContratar);
+        Boolean consigaContratarUmCheff = restaurante.contratarUmCheff(nomeDoCheffAContratar, salarioDoCheffAContratar);
 
         Assertions.assertTrue(consigaContratarUmCheff);
+    }
+
+    @Test
+    void devoConseguirContratarUmGarcon() {
+        String nomeDoGarconAContratar = "Steban";
+        Double salarioDoGarconAContratar = 500.00;
+
+        Boolean consigaContratarUmGarcon = restaurante.contratarUmGarcon(nomeDoGarconAContratar, salarioDoGarconAContratar);
+
+        Assertions.assertTrue(consigaContratarUmGarcon);
+    }
+
+    @Test
+    public void deveConseguirReceberUmNovoCliente() {
+        String nomeDoNovoCliente = "Stuart";
+        Double valorDoPedido = 300.00;
+
+        Boolean consigaReceberUmNovoCliente = restaurante.receberUmCliente(cliente, nomeDoNovoCliente, valorDoPedido);
+
+        Assertions.assertTrue(consigaReceberUmNovoCliente);
     }
 }

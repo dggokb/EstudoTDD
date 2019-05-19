@@ -20,17 +20,20 @@ public class Restaurante {
         return new Restaurante(cheff, garcon, cliente, valorEmCaixa);
     }
 
-    public static Cheff contratar(String nome, Double salario, String linhaDeCozinha) {
-        return new Cheff(nome, salario, linhaDeCozinha);
+    public boolean contratarUmCheff(String nome, Double salario, String linhaDeCozinha) {
+        return cheff.add(new Cheff(nome, salario, linhaDeCozinha));
     }
 
-    public boolean contratar(String nome, Double salario) {
+    public boolean contratarUmCheff(String nome, Double salario) {
         return cheff.add(new Cheff(nome, salario));
     }
 
-    public void adicionarNaLista (Cheff contratatado){
-        cheff.add(contratatado);
+    public Boolean contratarUmGarcon(String nomeDoGarconAContratar, Double salarioDoGarconAContratar) {
+        return garcon.add(new Garcon(nomeDoGarconAContratar, salarioDoGarconAContratar));
+    }
 
+    public Boolean receberUmCliente(List<Cliente> cliente, String nomeDoNovoCliente, Double valorDoPedido) {
+        return cliente.add(Cliente.criar(nomeDoNovoCliente, valorDoPedido));
     }
 
     private Double getReceitaTotalDoCliente(List<Cliente> cliente) {
@@ -46,7 +49,7 @@ public class Restaurante {
         for (Garcon g : garcon) {
             salario += g.getSalario();
         }
-        for (Cheff c: cheff){
+        for (Cheff c : cheff) {
             salario += c.getSalario();
         }
         return salario;
