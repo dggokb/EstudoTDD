@@ -18,10 +18,6 @@ class ClienteTest {
 
     @Test
     public void deveConseguirSerUmClienteNoRestaurante() {
-        String nomeDoCliente = "Carol";
-        Double valorDoPedido = 650.00;
-        String preferenciaDoCliente = "Oriental";
-
         Cliente cliente = Cliente.criar(nomeDoCliente, valorDoPedido, preferenciaDoCliente);
 
         assertEquals(cliente.getNome(), nomeDoCliente);
