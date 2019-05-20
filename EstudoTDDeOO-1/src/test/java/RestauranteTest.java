@@ -7,14 +7,14 @@ import java.util.Arrays;
 import java.util.List;
 
 class RestauranteTest {
-    List<Cheff> cheff;
-    List<Garcon> garcon;
-    List<Cliente> cliente;
-    Double valorEmCaixa;
-    Restaurante restaurante;
-    String nomeDoCheffAContratar;
-    Double salarioDoCheffAContratar;
-    String linhaDeCozinhaDoCheffAContratar;
+    private List<Cheff> cheff;
+    private List<Garcon> garcon;
+    private List<Cliente> cliente;
+    private Double valorEmCaixa;
+    private Restaurante restaurante;
+    private String nomeDoCheffAContratar;
+    private Double salarioDoCheffAContratar;
+    private String linhaDeCozinhaDoCheffAContratar;
 
     @BeforeEach
     public void setUp() {
@@ -44,9 +44,9 @@ class RestauranteTest {
 
     @Test
     public void deveConseguirRealizarOLevantamentoDoFaturamentoDoRestaurante() {
-        Double faturamentoObtidoDoRestaurante = 7700.00;
+        Double faturamentoEperado = 7700.00;
 
-        Double faturamentoEperado = restaurante.getFaturamento();
+        Double faturamentoObtidoDoRestaurante = restaurante.getFaturamento();
 
         Assertions.assertEquals(faturamentoEperado, faturamentoObtidoDoRestaurante);
     }

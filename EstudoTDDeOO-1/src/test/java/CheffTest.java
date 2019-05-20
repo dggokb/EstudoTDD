@@ -3,8 +3,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class CheffTest {
-    String nomeDoCheff;
-    Double salarioDoCheff;
+    private String nomeDoCheff;
+    private Double salarioDoCheff;
 
     @BeforeEach
     void setUp() {

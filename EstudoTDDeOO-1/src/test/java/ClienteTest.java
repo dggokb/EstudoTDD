@@ -5,9 +5,9 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ClienteTest {
-    String nomeDoCliente;
-    Double valorDoPedido;
-    String preferenciaDoCliente;
+    private String nomeDoCliente;
+    private Double valorDoPedido;
+    private String preferenciaDoCliente;
 
     @BeforeEach
     void setUp() {
