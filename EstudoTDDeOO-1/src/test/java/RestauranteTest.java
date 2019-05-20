@@ -44,9 +44,9 @@ class RestauranteTest {
 
     @Test
     public void deveConseguirRealizarOLevantamentoDoFaturamentoDoRestaurante() {
-        Double faturamentoEperado = 7700.00;
+        Double faturamentoObtidoDoRestaurante = 7700.00;
 
-        Double faturamentoObtidoDoRestaurante = restaurante.getFaturamento();
+        Double faturamentoEperado = restaurante.getFaturamento();
 
         Assertions.assertEquals(faturamentoEperado, faturamentoObtidoDoRestaurante);
     }

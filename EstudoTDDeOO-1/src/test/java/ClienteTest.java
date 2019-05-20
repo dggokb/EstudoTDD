@@ -27,10 +27,10 @@ class ClienteTest {
 
     @Test
     void deveConseguirPedirAConta() {
-        Double valorTotalDoPedidoEsperado = 800.00;
+        Double valorTotalDoPedido = 800.00;
         Cliente cliente = Cliente.criar(nomeDoCliente, valorDoPedido, preferenciaDoCliente);
 
-        Double valorTotalDoPedido = cliente.getValorDaConta();
+        Double valorTotalDoPedidoEsperado = cliente.getValorDaConta();
 
         Assertions.assertEquals(valorTotalDoPedidoEsperado, valorTotalDoPedido);
     }

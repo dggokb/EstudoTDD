@@ -20,7 +20,7 @@ class CheffTest {
 
         Double salario = cheff.getSalario();
 
-        Assertions.assertEquals(salarioDoCheffASerRecebido, salario);
+        Assertions.assertEquals(salario, salarioDoCheffASerRecebido);
     }
 
     @Test
@@ -30,6 +30,6 @@ class CheffTest {
 
         Double salario = cheff.getSalario();
 
-        Assertions.assertEquals(salarioDoCheffASerRecebido, salario);
+        Assertions.assertEquals(salario, salarioDoCheffASerRecebido);
     }
 }
