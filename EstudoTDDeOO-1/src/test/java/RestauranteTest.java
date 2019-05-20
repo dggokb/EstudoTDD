@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 class RestauranteTest {
     List<Cheff> cheff;
     List<Garcon> garcon;
@@ -36,10 +38,10 @@ class RestauranteTest {
     public void deveConseguirCriarUmRestaurante() {
         Restaurante umRestauranteDeveSerCriado = Restaurante.criar(cheff, garcon, cliente, valorEmCaixa);
 
-        Assertions.assertEquals(umRestauranteDeveSerCriado.getCheff(), cheff);
-        Assertions.assertEquals(umRestauranteDeveSerCriado.getGarcon(), garcon);
-        Assertions.assertEquals(umRestauranteDeveSerCriado.getCliente(), cliente);
-        Assertions.assertEquals(umRestauranteDeveSerCriado.getValorEmCaixa(), valorEmCaixa);
+        assertEquals(cheff, umRestauranteDeveSerCriado.getCheff());
+        assertEquals(garcon, umRestauranteDeveSerCriado.getGarcon());
+        assertEquals(cliente, umRestauranteDeveSerCriado.getCliente());
+        assertEquals(valorEmCaixa, umRestauranteDeveSerCriado.getValorEmCaixa());
     }
 
     @Test
@@ -48,21 +50,21 @@ class RestauranteTest {
 
         Double faturamentoObtidoDoRestaurante = restaurante.getFaturamento();
 
-        Assertions.assertEquals(faturamentoEperado, faturamentoObtidoDoRestaurante);
+        assertEquals(faturamentoEperado, faturamentoObtidoDoRestaurante);
     }
 
     @Test
     void devoConseguirContratarUmCheffComLinhaDeCozinhaDefinida() {
         Boolean consigaContratarUmCheff = restaurante.contratarUmCheff(nomeDoCheffAContratar, salarioDoCheffAContratar, linhaDeCozinhaDoCheffAContratar);
 
-        Assertions.assertTrue(consigaContratarUmCheff);
+        assertTrue(consigaContratarUmCheff);
     }
 
     @Test
     void devoConseguirContratarUmCheffSemLinhaDeCozinhaDefinida() {
         Boolean consigaContratarUmCheff = restaurante.contratarUmCheff(nomeDoCheffAContratar, salarioDoCheffAContratar);
 
-        Assertions.assertTrue(consigaContratarUmCheff);
+        assertTrue(consigaContratarUmCheff);
     }
 
     @Test
@@ -72,7 +74,7 @@ class RestauranteTest {
 
         Boolean consigaContratarUmGarcon = restaurante.contratarUmGarcon(nomeDoGarconAContratar, salarioDoGarconAContratar);
 
-        Assertions.assertTrue(consigaContratarUmGarcon);
+        assertTrue(consigaContratarUmGarcon);
     }
 
     @Test
@@ -82,6 +84,6 @@ class RestauranteTest {
 
         Boolean consigaReceberUmNovoCliente = restaurante.receberUmCliente(cliente, nomeDoNovoCliente, valorDoPedido);
 
-        Assertions.assertTrue(consigaReceberUmNovoCliente);
+        assertTrue(consigaReceberUmNovoCliente);
     }
 }

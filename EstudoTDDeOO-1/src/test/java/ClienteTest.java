@@ -20,9 +20,9 @@ class ClienteTest {
     public void deveConseguirSerUmClienteNoRestaurante() {
         Cliente cliente = Cliente.criar(nomeDoCliente, valorDoPedido, preferenciaDoCliente);
 
-        assertEquals(cliente.getNome(), nomeDoCliente);
-        assertEquals(cliente.getValorDoPedido(), valorDoPedido);
-        assertEquals(cliente.getPreferencia(), preferenciaDoCliente);
+        assertEquals(nomeDoCliente, cliente.getNome());
+        assertEquals(valorDoPedido, cliente.getValorDoPedido());
+        assertEquals(preferenciaDoCliente, cliente.getPreferencia());
     }
 
     @Test
