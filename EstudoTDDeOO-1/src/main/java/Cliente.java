@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class Cliente implements Conta{
+public class Cliente implements Conta {
     String nome;
     String preferencia;
     Double valorDoPedido;
@@ -20,20 +20,19 @@ public class Cliente implements Conta{
         return new Cliente(nomeDoCliente, valorDaConta, preferenciaDoCliente);
     }
 
-    public static Cliente criar(String nomeDoCliente, Double valorDaConta  ) {
+    public static Cliente criar(String nomeDoCliente, Double valorDaConta) {
         return new Cliente(nomeDoCliente, valorDaConta);
     }
 
     public Double getValorDaConta() {
-        double conta = 0.00;
         if (getPreferencia() == "Vegetariano")
-            conta = getValorDoPedido() + 100.00;
+            return getValorDoPedido() + 100.00;
         if (getPreferencia() == "Oriental")
-            conta = getValorDoPedido() + 150.00;
+            return getValorDoPedido() + 150.00;
         if (getPreferencia() == "Francesa")
-            conta = getValorDoPedido() + 250.00;
-
-        return conta;
+            return getValorDoPedido() + 250.00;
+        else
+            return getValorDoPedido();
     }
 
     public Double getValorDoPedido() {

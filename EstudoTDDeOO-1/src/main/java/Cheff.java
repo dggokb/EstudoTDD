@@ -10,6 +10,13 @@ public class Cheff extends Funcionario {
         super(nome, salario);
     }
 
+    public static Cheff criar(String nome, Double salario) {
+        return new Cheff(nome,salario);
+    }
+    public static Cheff criar(String nome, Double salario, String linhaDeCozinha) {
+        return new Cheff(nome,salario,linhaDeCozinha);
+    }
+
     public String getLinhaDeCozinha() {
         return linhaDeCozinha;
     }

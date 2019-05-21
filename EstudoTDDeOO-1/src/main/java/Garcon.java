@@ -4,6 +4,10 @@ public class Garcon extends Funcionario {
         super(nome, salario);
     }
 
+    public static Garcon criar(String nome, Double salario) {
+        return new Garcon(nome,salario);
+    }
+
     public Double getSalario() {
         return salario;
     }

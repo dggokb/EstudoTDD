@@ -18,13 +18,15 @@ class RestauranteTest {
 
     @BeforeEach
     public void setUp() {
+
         cheff = new ArrayList<Cheff>();
         garcon = new ArrayList<Garcon>();
         cliente = new ArrayList<Cliente>();
-        cheff.add(new Cheff("Joao", 2000.00, "Vegetariano"));
-        garcon.add(new Garcon("Antonio", 500.00));
-        cliente.add(new Cliente("Gertrudis", 150.00));
-        cliente.add(new Cliente("Nobrega", 200.00, "Vegetariano"));
+        cheff.add(new CheffBuilder().criar());
+        cheff.add(new CheffBuilder().criarComLinhaDeCozinha());
+        garcon.add (new GarconBuilder().criar());
+        cliente.add(new ClienteBuilder().criar());
+        cliente.add(new ClienteBuilder().criarComPreferencia());
         valorEmCaixa = 10000.00;
         nomeDoCheffAContratar = "Juca";
         salarioDoCheffAContratar = 3000.00;
@@ -44,7 +46,7 @@ class RestauranteTest {
 
     @Test
     public void deveConseguirRealizarOLevantamentoDoFaturamentoDoRestaurante() {
-        Double faturamentoEperado = 7700.00;
+        Double faturamentoEperado = 7500.00;
 
         Double faturamentoObtidoDoRestaurante = restaurante.getFaturamento();
 
