@@ -19,7 +19,7 @@ public class CheffBuilder {
         return this;
     }
 
-    public CheffBuilder comLinhaDeCozinha (String nome){
+    public CheffBuilder comLinhaDeCozinha (String linhaDeCozinha){
         this.linhaDeCozinha = linhaDeCozinha;
         return this;
     }

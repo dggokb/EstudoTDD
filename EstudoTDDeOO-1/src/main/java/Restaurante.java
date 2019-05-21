@@ -6,14 +6,12 @@ public class Restaurante {
     private List<Garcon> garcon;
     private List<Cliente> cliente;
     private Double valorEmCaixa;
-    private Double faturamento;
 
     public Restaurante(List<Cheff> cheff, List<Garcon> garcon, List<Cliente> cliente, Double valorEmCaixa) {
         this.cheff = cheff;
         this.garcon = garcon;
         this.cliente = cliente;
         this.valorEmCaixa = valorEmCaixa;
-        this.faturamento = faturamento;
     }
 
     public static Restaurante criar(List<Cheff> cheff, List<Garcon> garcon, List<Cliente> cliente, Double valorEmCaixa) {
@@ -56,8 +54,7 @@ public class Restaurante {
     }
 
     public Double getFaturamento() {
-        faturamento = getValorEmCaixa() + getReceitaTotalDoCliente(cliente) - getSomatorioDosSalarios(garcon, cheff);
-        return faturamento;
+        return getValorEmCaixa() + getReceitaTotalDoCliente(cliente) - getSomatorioDosSalarios(garcon, cheff);
     }
 
     public List<Cheff> getCheff() {
