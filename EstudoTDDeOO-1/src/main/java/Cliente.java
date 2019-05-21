@@ -1,16 +1,12 @@
-import java.util.List;
-
 public class Cliente implements Conta {
     private String nome;
     private String preferencia;
     private Double valorDoPedido;
 
-
     public Cliente(String nome, Double valorDoPedido, String preferencia) {
         this.nome = nome;
         this.valorDoPedido = valorDoPedido;
         this.preferencia = preferencia;
-
     }
 
     public Cliente(String nome, Double valorDoPedido) {
@@ -28,10 +24,10 @@ public class Cliente implements Conta {
 
     public Double getValorDaConta() {
         TabelaDePreferencias tabela = new TabelaDePreferencias();
-        return getPreferencia(getPreferencia(), tabela.getValorDaPreferencia(getPreferencia()));
+        return getValorDoPedidoEPreferencia(getPreferencia(), tabela.getValorDaPreferencia(getPreferencia()));
     }
 
-    private double getPreferencia(String tipoDaPreferencia, double valor) {
+    private double getValorDoPedidoEPreferencia(String tipoDaPreferencia, double valor) {
         if (getPreferencia() == tipoDaPreferencia)
             return getValorDoPedido() + valor;
         return getValorDoPedido();

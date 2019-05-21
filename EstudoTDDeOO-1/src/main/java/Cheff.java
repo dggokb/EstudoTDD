@@ -29,8 +29,8 @@ public class Cheff extends Funcionario {
         return salario;
     }
 
-    private void getPreferencia(String linhaDeCozinha, double v) {
+    private void getPreferencia(String linhaDeCozinha, double valor) {
         if (getLinhaDeCozinha() == linhaDeCozinha)
-            salario = salario + v;
+            salario = salario + valor;
     }
 }
