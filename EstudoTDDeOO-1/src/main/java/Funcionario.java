@@ -1,6 +1,5 @@
 public abstract class Funcionario {
     private String nome;
-
     protected Double salario;
 
     public Funcionario(String nome, Double salario) {

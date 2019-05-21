@@ -1,4 +1,3 @@
 public interface Conta {
-
-     Double getValorDaConta();
+    Double getValorDaConta();
 }

@@ -2,11 +2,11 @@ import java.util.List;
 
 public class Restaurante {
 
-    List<Cheff> cheff;
-    List<Garcon> garcon;
-    List<Cliente> cliente;
-    Double valorEmCaixa;
-    Double faturamento;
+    private List<Cheff> cheff;
+    private List<Garcon> garcon;
+    private List<Cliente> cliente;
+    private Double valorEmCaixa;
+    private Double faturamento;
 
     public Restaurante(List<Cheff> cheff, List<Garcon> garcon, List<Cliente> cliente, Double valorEmCaixa) {
         this.cheff = cheff;

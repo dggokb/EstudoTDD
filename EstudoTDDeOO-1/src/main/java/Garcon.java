@@ -5,7 +5,7 @@ public class Garcon extends Funcionario {
     }
 
     public static Garcon criar(String nome, Double salario) {
-        return new Garcon(nome,salario);
+        return new Garcon(nome, salario);
     }
 
     public Double getSalario() {

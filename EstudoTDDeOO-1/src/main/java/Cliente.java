@@ -1,14 +1,16 @@
 import java.util.List;
 
 public class Cliente implements Conta {
-    String nome;
-    String preferencia;
-    Double valorDoPedido;
+    private String nome;
+    private String preferencia;
+    private Double valorDoPedido;
+
 
     public Cliente(String nome, Double valorDoPedido, String preferencia) {
         this.nome = nome;
         this.valorDoPedido = valorDoPedido;
         this.preferencia = preferencia;
+
     }
 
     public Cliente(String nome, Double valorDoPedido) {
@@ -25,14 +27,14 @@ public class Cliente implements Conta {
     }
 
     public Double getValorDaConta() {
-        if (getPreferencia() == "Vegetariano")
-            return getValorDoPedido() + 100.00;
-        if (getPreferencia() == "Oriental")
-            return getValorDoPedido() + 150.00;
-        if (getPreferencia() == "Francesa")
-            return getValorDoPedido() + 250.00;
-        else
-            return getValorDoPedido();
+        TabelaDePreferencias tabela = new TabelaDePreferencias();
+        return getPreferencia(getPreferencia(), tabela.getValorDaPreferencia(getPreferencia()));
+    }
+
+    private double getPreferencia(String tipoDaPreferencia, double valor) {
+        if (getPreferencia() == tipoDaPreferencia)
+            return getValorDoPedido() + valor;
+        return getValorDoPedido();
     }
 
     public Double getValorDoPedido() {
