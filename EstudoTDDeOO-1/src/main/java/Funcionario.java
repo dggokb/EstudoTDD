@@ -1,4 +1,4 @@
-public abstract class Funcionario implements SalarioDoFuncionario {
+public abstract class Funcionario {
     private String nome;
 
     protected Double salario;
@@ -6,5 +6,8 @@ public abstract class Funcionario implements SalarioDoFuncionario {
     public Funcionario(String nome, Double salario) {
         this.nome = nome;
         this.salario = salario;
+    }
+    public Double getSalario() {
+        return salario;
     }
 }
