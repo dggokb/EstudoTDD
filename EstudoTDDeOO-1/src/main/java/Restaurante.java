@@ -1,20 +1,19 @@
 import java.util.List;
 
 public class Restaurante {
-
-    private List<Cheff> cheff;
-    private List<Garcon> garcon;
+    private List<Funcionario> cheff;
+    private List<Funcionario> garcon;
     private List<Cliente> cliente;
     private Double valorEmCaixa;
 
-    public Restaurante(List<Cheff> cheff, List<Garcon> garcon, List<Cliente> cliente, Double valorEmCaixa) {
+    public Restaurante(List<Funcionario> cheff, List<Funcionario> garcon, List<Cliente> cliente, Double valorEmCaixa) {
         this.cheff = cheff;
         this.garcon = garcon;
         this.cliente = cliente;
         this.valorEmCaixa = valorEmCaixa;
     }
 
-    public static Restaurante criar(List<Cheff> cheff, List<Garcon> garcon, List<Cliente> cliente, Double valorEmCaixa) {
+    public static Restaurante criar(List<Funcionario> cheff, List<Funcionario> garcon, List<Cliente> cliente, Double valorEmCaixa) {
         return new Restaurante(cheff, garcon, cliente, valorEmCaixa);
     }
 
@@ -26,11 +25,11 @@ public class Restaurante {
         return cheff.add(new Cheff(nome, salario));
     }
 
-    public Boolean contratarUmGarcon(String nomeDoGarconAContratar, Double salarioDoGarconAContratar) {
+    public boolean contratarUmGarcon(String nomeDoGarconAContratar, Double salarioDoGarconAContratar) {
         return garcon.add(new Garcon(nomeDoGarconAContratar, salarioDoGarconAContratar));
     }
 
-    public Boolean receberUmCliente(List<Cliente> cliente, String nomeDoNovoCliente, Double valorDoPedido) {
+    public boolean receberUmCliente(List<Cliente> cliente, String nomeDoNovoCliente, Double valorDoPedido) {
         return cliente.add(Cliente.criar(nomeDoNovoCliente, valorDoPedido));
     }
 
@@ -42,12 +41,16 @@ public class Restaurante {
         return receita;
     }
 
-    private Double getSomatorioDosSalarios(List<Garcon> garcon, List<Cheff> cheff) {
+    private Double getSomatorioDosSalarios(List<Funcionario> garcon, List<Funcionario> cheff) {
         double salario = 0;
-        for (Garcon g : garcon) {
-            salario += g.getSalario();
-        }
-        for (Cheff c : cheff) {
+        salario = somaDosSalariosDeUmDeterminadoFuncionario(cheff, salario);
+        salario = somaDosSalariosDeUmDeterminadoFuncionario(garcon, salario);
+
+        return salario;
+    }
+
+    private double somaDosSalariosDeUmDeterminadoFuncionario(List<Funcionario> funcionario, double salario) {
+        for (Funcionario c : funcionario) {
             salario += c.getSalario();
         }
         return salario;
@@ -57,11 +60,11 @@ public class Restaurante {
         return getValorEmCaixa() + getReceitaTotalDoCliente(cliente) - getSomatorioDosSalarios(garcon, cheff);
     }
 
-    public List<Cheff> getCheff() {
+    public List<Funcionario> getCheff() {
         return cheff;
     }
 
-    public List<Garcon> getGarcon() {
+    public List<Funcionario> getGarcon() {
         return garcon;
     }
 

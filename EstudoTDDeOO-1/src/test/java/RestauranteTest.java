@@ -8,8 +8,9 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RestauranteTest {
-    private List<Cheff> cheff;
-    private List<Garcon> garcon;
+
+    private List<Funcionario> cheff;
+    private List<Funcionario> garcon;
     private List<Cliente> cliente;
     private Double valorEmCaixa;
     private Restaurante restaurante;
@@ -19,10 +20,9 @@ class RestauranteTest {
 
     @BeforeEach
     public void setUp() {
-
-        cheff = new ArrayList<Cheff>();
-        garcon = new ArrayList<Garcon>();
-        cliente = new ArrayList<Cliente>();
+        cheff = new ArrayList<>();
+        garcon = new ArrayList<>();
+        cliente = new ArrayList<>();
         cheff.add(new CheffBuilder().criar());
         cheff.add(new CheffBuilder().criarComLinhaDeCozinha());
         garcon.add(new GarconBuilder().criar());
@@ -31,7 +31,7 @@ class RestauranteTest {
         valorEmCaixa = 10000.00;
         nomeDoCheffAContratar = "Juca";
         salarioDoCheffAContratar = 3000.00;
-        linhaDeCozinhaDoCheffAContratar = "Ocidental";
+        linhaDeCozinhaDoCheffAContratar = "Oriental";
         restaurante = new Restaurante(cheff, garcon, cliente, valorEmCaixa);
     }
 
